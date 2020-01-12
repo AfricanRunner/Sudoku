@@ -1,11 +1,9 @@
 
 #include "sudoku.h"
-
 #include "implication.h"
 
 #include <cmath>
 #include <sstream>
-
 #include <iostream>
 
 using namespace sdk;
@@ -139,13 +137,6 @@ void sudoku::solve(int pos, bool keep_changes, int& n_solutions)
 	impl.undo(*this);
 }
 
-bool sudoku::unique_solution()
-{
-	int a = 2;
-	solve(0, false, a);
-	return a == 1;
-}
-
 sudoku::sudoku(int dim) : dim(dim)
 {
 	v_sec = factor(dim);
@@ -210,31 +201,3 @@ std::string sudoku::str() const
 
 	return ss.str();
 }
-
-sudoku sudoku::generate(int dim)
-{
-	sudoku sdk(dim);
-
-	index_list il(dim);
-	il.shuffle();
-
-	int a = 1;
-	//sdk.solve(0, true, il, a);
-	sdk.solve(0, true, a);
-
-	for (int i = 0; i < sdk.size(); i++) {
-		int index = il.get_index(i);
-		int v = sdk.get(index);
-		sdk.set(index, 0);
-		int a = 2;
-		//sdk.solve(0, false, il, a);
-		sdk.solve(0, false, a);
-		if(a == 2)
-			std::cout << "Problem!!" << std::endl;
-		if(a == 0)
-			sdk.set(i, v);
-	}
-
-	return sdk;
-}
-

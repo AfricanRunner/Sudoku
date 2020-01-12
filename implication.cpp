@@ -1,6 +1,5 @@
 
 #include "implication.h"
-
 #include "sudoku.h"
 
 #include <iostream>

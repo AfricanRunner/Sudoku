@@ -6,8 +6,6 @@
 #include <vector>
 #include <string>
 
-#include "index_list.h"
-
 namespace sdk
 {
 	struct implication;
@@ -73,8 +71,6 @@ namespace sdk
 
 		void solve(int pos, bool keep_changes, int& n_solutions);
 
-		bool unique_solution();
-
 	public:
 		sudoku(int dim);
 		sudoku(const std::vector<int> in);
@@ -84,8 +80,6 @@ namespace sdk
 		bool valid() const;
 
 		std::string str() const;
-
-		static sudoku generate(int dim);
 	};
 };
 

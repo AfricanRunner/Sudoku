@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "sudoku.h"
-
 #include "stopwatch/stopwatch.h"
 
 using namespace sdk;
@@ -62,10 +61,6 @@ int main()
 
 	std::cout << s.str() << std::endl;
 	std::cout << (s.valid() ? "Valid!" : "Invalid :(") << std::endl;
-	
-	//sudoku s = sudoku::generate(9);
-
-	//std::cout << s.str() << std::endl;
 
 	return 0;
 }
